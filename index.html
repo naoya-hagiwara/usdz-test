@@ -1,15 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR Test</title>
+    <title>AR View</title>
+    
+    <style>
+        /* スタイル設定 */
+        body {
+            margin: 0;
+            padding: 20px; /* 画面端に少し余白を作る */
+            text-align: center; /* 画像を中央寄せにする */
+            background-color: #f0f0f0; /* 背景を薄いグレーにする（任意） */
+        }
+
+        .ar-thumbnail {
+            /* ここがポイント：横幅を親要素（画面）の100%までに制限する */
+            max-width: 100%; 
+            /* 比率を保ったまま高さを自動調整する */
+            height: auto; 
+            
+            /* 角を少し丸くしてボタンっぽくする（任意） */
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* 影をつけて浮き上がらせる */
+        }
+    </style>
 </head>
 <body>
-    
+
     <a href="Chair.usdz" rel="ar">
-        <img src="THUMBNAIL.jpg" alt="ARモデルを開く">
+        <img src="THUMBNAIL.jpg" alt="ARモデルを開く" class="ar-thumbnail">
     </a>
+
+    <p>画像をタップしてARを開始</p>
 
 </body>
 </html>
