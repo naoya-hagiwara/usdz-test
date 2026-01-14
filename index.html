@@ -3,42 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR View</title>
+    <title>AR View List</title>
     
     <style>
-        /* スタイル設定 */
+        /* 基本設定 */
         body {
             margin: 0;
-            padding: 20px; /* 画面端に少し余白を作る */
-            text-align: center; /* 画像を中央寄せにする */
-            background-color: #f0f0f0; /* 背景を薄いグレーにする（任意） */
+            padding: 20px;
+            background-color: #f0f0f0;
+            font-family: sans-serif; /* フォントを見やすく */
         }
 
+        /* 縦並びを制御するコンテナ */
+        .ar-list {
+            display: flex;           /* フレックスボックスを使用 */
+            flex-direction: column;  /* 縦方向に並べる */
+            align-items: center;     /* 中央揃え */
+            gap: 30px;               /* アイテム同士の間隔（ここを変えると広さが変わります） */
+            max-width: 600px;        /* 画面が広すぎるときのために幅を制限（任意） */
+            margin: 0 auto;          /* コンテナ自体を画面中央に */
+        }
+
+        /* 各ARアイテムのスタイル */
+        .ar-item {
+            text-align: center;      /* キャプションなどを中央寄せ */
+            width: 100%;             /* 親要素の幅いっぱいに */
+        }
+
+        /* サムネイル画像のスタイル */
         .ar-thumbnail {
-            /* ここがポイント：横幅を親要素（画面）の100%までに制限する */
-            max-width: 100%; 
-            /* 比率を保ったまま高さを自動調整する */
+            width: 100%;             /* 幅を100%にしてレスポンシブ対応 */
             height: auto; 
-            
-            /* 角を少し丸くしてボタンっぽくする（任意） */
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* 影をつけて浮き上がらせる */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s; /* タップ時の動き用（任意） */
+            display: block;          /* 画像下の隙間を消す */
+        }
+
+        /* タップした時に少し沈む演出（任意） */
+        .ar-thumbnail:active {
+            transform: scale(0.98);
+        }
+
+        /* 商品名などのテキスト（任意） */
+        .caption {
+            margin-top: 10px;
+            color: #333;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <a href="Chair.usdz" rel="ar">
-        <img src="THUMBNAIL.jpg" alt="ARモデルを開く" class="ar-thumbnail">
-    </a>
-
+    <h1>AR Collection</h1>
     <p>画像をタップしてARを開始</p>
 
-    <a href="Chair.usdz" rel="ar">
-        <img src="THUMBNAIL.jpg" alt="ARモデルを開く" class="ar-thumbnail">
-    </a>
+    <div class="ar-list">
 
-    <p>画像をタップしてARを開始</p>
+        <div class="ar-item">
+            <a href="Model1.usdz" rel="ar">
+                <img src="THUMBNAIL1.jpg" alt="椅子モデル1" class="ar-thumbnail">
+            </a>
+            <div class="caption">モデル A</div>
+        </div>
+
+        <div class="ar-item">
+            <a href="Model2.usdz" rel="ar">
+                <img src="THUMBNAIL2.jpg" alt="椅子モデル2" class="ar-thumbnail">
+            </a>
+            <div class="caption">モデル B</div>
+        </div>
+
+        <div class="ar-item">
+            <a href="Model3.usdz" rel="ar">
+                <img src="THUMBNAIL3.jpg" alt="椅子モデル3" class="ar-thumbnail">
+            </a>
+            <div class="caption">モデル C</div>
+        </div>
+
+        <div class="ar-item">
+            <a href="Model4.usdz" rel="ar">
+                <img src="THUMBNAIL4.jpg" alt="椅子モデル4" class="ar-thumbnail">
+            </a>
+            <div class="caption">モデル D</div>
+        </div>
+
+    </div>
 
 </body>
 </html>
